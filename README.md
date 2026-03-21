@@ -1,57 +1,128 @@
-# Cancer Candy Catalogue
+# Cancer Candy
 
-**Penny per patient. Color tells you the type. Not solved means go faster.**
+**24 flavors. Same mechanism. No kid gets cancer on our watch.**
 
-A color-coded product line where each color represents a different health intervention class. Every product operates on the same design constraint: **the cheapest possible unit cost that still delivers the mechanism.** The candy framing is deliberate — sugar is the delivery vehicle, the Trojan horse that carries the science.
+Cancer Candy is a prevention and detection product line. Every flavor delivers the same two mechanisms through a different candy expression — because no one's taste should be the reason they don't get protected.
 
-## The Colors
+## The Two Mechanisms
 
-| Color | Product | Unit Cost | Target Population |
-|-------|---------|-----------|-------------------|
-| **WHITE** | D-Xylose Base (the penny sugar) | $0.01/dose | 500M+ (metabolic) |
-| **RED** | Cardiac Drink | ~$2/serving | 100M+ (CV risk) |
-| **BLUE** | Men's Optimization | $45-140/mo | Consumer |
-| **GREEN** | Cancer Detection Nanocapsule | $0.01-0.10/dose | 19M+ (new cancer/yr) |
-| **PURPLE** | Women's + Child Priority | $41-95/mo | Consumer |
-| **GOLD** | Neuro / Myelin (brain candy) | $35-90/mo | Consumer |
-| **ORANGE** | Neonatal Package (NICU-in-a-box) | $20-30/birth | 1.8M deaths/yr preventable |
-| **SILVER** | Apex Arc (graphene neurorehab pad) | $0.01/pad target | Universal bioelectric interface |
-| **ICE-BLUE** | Intercontinental Ice Interceptors | TBD | Planetary |
-| **BLACK** | Bird Brain (biomimetic circuits) | TBD | Compute paradigm |
+### 1. Prevention — D-Xylose (WHITE)
+
+D-Xylose is a naturally occurring monosaccharide (GRAS since 1982) that costs **$0.01/dose**. It drives a 9-link self-reinforcing anti-cancer feedback loop:
+
+```
+Sucrase inhibition (Ki 3.2-8.4 mM, uncompetitive)
+  → Glucose AUC ↓21%
+    → Insulin AUC ↓21-35%
+      → Insulin sensitivity ↑
+        → AMPK activation (3.23x at 20mM)
+          → PPP flux (NADPH ↑200-300%, GSH ↑150%)
+            → ROS ↓50%
+              → SCFA production (prebiotic)
+                → Gut barrier integrity → Endotoxemia ↓
+                  → Sleep quality → Cortisol regulation
+                    → [LOOP BACK TO STEP 1]
+```
+
+**Why this prevents cancer:** AMPK activation, pentose phosphate pathway flux, and reactive oxygen species reduction are three of the most validated anti-cancer metabolic pathways in published literature. D-Xylose delivers all three in a sugar that costs a penny.
+
+| Property | Value |
+|----------|-------|
+| Molecule | D-Xylose (CHEMBL1236821) |
+| MW | 150.13 g/mol |
+| Calories | 2.4 kcal/g ("right-calorie" — routes through PPP, not stored as fat) |
+| GRAS | Since 1982 |
+| Allergenicity | Zero (pure monosaccharide, no protein epitopes, no IgE binding) |
+| Drug interactions | Zero (no CYP metabolism) |
+| Cost/dose | $0.01-0.12/day |
+
+**Complementary prevention stack (all in the candy):**
+
+| Compound | Mechanism | $/day |
+|----------|-----------|-------|
+| D-Xylose | Glycemic + AMPK + PPP + prebiotic | $0.01-0.12 |
+| XOS (xylo-oligosaccharides) | Targeted Bifidobacteria prebiotic | $0.10-0.30 |
+| D-Allulose | Hepatic lipogenesis inhibition, GLP-1 | $0.30-0.60 |
+| Myo-Inositol | PI3K/Akt insulin signaling | $0.15-0.25 |
+| **TOTAL** | | **<$1.30/day retail** |
+
+**Critical unsolved safety gap:** Platelet activation assay needed ($30K-150K). Xylitol (alditol) = 1.57x MACE risk. Erythritol (alditol) = 2x MACE risk. D-Xylose retains its aldehyde group (NOT an alditol) and should NOT activate P2Y12 — but the assay proving this hasn't been run. **Not solved means go faster.**
+
+### 2. Detection — GREEN Nanocapsule
+
+D-Xylose surface functionalization exploiting GLUT1 overexpression in tumor cells (Warburg effect). The sugar IS the targeting vector.
+
+**You eat a candy. If you have cancer, you turn a color. The sugar finds the cancer. The color tells the doctor. Penny per patient.**
+
+Three versions:
+
+| Version | Architecture | Status |
+|---------|-------------|--------|
+| **V1 — LNP Nanocapsule** | Lipid nanoparticle + D-xylose surface ligands + pH-triggered chromophore release (tumor pH 6.2-6.8 vs normal 7.4) | Achievable with existing nanomedicine infrastructure |
+| **V2 — Bucky Mesh** | Sugar-polymer cage with fullerene-derived mesh, chemo-osmotic drift, self-assembling | Architecture defined |
+| **V2.2 — Janus Hollow Shell** | Half-hydrophilic/half-hydrophobic asymmetric nanocell, rolling chemotaxis toward glucose gradients, centrifugal chromophore launch | Architecture defined, 3-SAT manufacturing constraints mapped |
+
+**Estimated cost:** $0.01-0.10/dose at LNP manufacturing scale.
+
+---
+
+## The 24 Flavors
+
+Same two mechanisms in every candy. 24 different expressions so no kid's taste is missed. Every flavor contains the D-Xylose prevention stack. Every flavor can carry the GREEN detection nanocapsule payload.
+
+| # | Flavor | Candy Form | Color |
+|---|--------|-----------|-------|
+| 1 | Strawberry | Gummy bear | Red |
+| 2 | Blue Raspberry | Gummy bear | Blue |
+| 3 | Grape | Gummy bear | Purple |
+| 4 | Green Apple | Gummy bear | Green |
+| 5 | Watermelon | Gummy ring | Pink/Green |
+| 6 | Mango | Gummy ring | Orange |
+| 7 | Pineapple | Gummy ring | Yellow |
+| 8 | Cherry | Gummy ring | Dark Red |
+| 9 | Lemon | Hard candy | Yellow |
+| 10 | Orange | Hard candy | Orange |
+| 11 | Lime | Hard candy | Green |
+| 12 | Cinnamon | Hard candy | Red |
+| 13 | Vanilla | Lollipop | White |
+| 14 | Cotton Candy | Lollipop | Pink/Blue |
+| 15 | Bubblegum | Lollipop | Pink |
+| 16 | Root Beer | Lollipop | Brown |
+| 17 | Chocolate | Chew | Brown |
+| 18 | Caramel | Chew | Gold |
+| 19 | Peanut Butter | Chew | Tan |
+| 20 | Coconut | Chew | White |
+| 21 | Peach | Powder/sachet | Orange |
+| 22 | Mixed Berry | Powder/sachet | Purple |
+| 23 | Tropical Punch | Powder/sachet | Red |
+| 24 | Unflavored | Powder/sachet | Clear |
+
+**Six candy forms × four flavors each = 24 SKUs.** Gummy bears, gummy rings, hard candies, lollipops, chews, and powder sachets. The powder/sachet form factor enables the $0.025/dose minimum viable deployment for global reach.
+
+**Design constraint:** Every form factor must be shelf-stable without cold chain. Every flavor must mask the D-Xylose taste profile (mildly sweet, slight woody note). Every SKU must be manufacturable with existing confectionery equipment.
+
+**Allergen-free by design:** D-Xylose is a pure monosaccharide — zero protein epitopes, zero IgE binding potential. No nuts, no dairy, no gluten, no soy in the base formulation. Individual flavors that add allergens (e.g., #19 Peanut Butter) are clearly labeled; the mechanism itself is allergen-free.
+
+---
 
 ## Repository Contents
 
 ```
-cancer_candy_catalogue.md   — Full catalogue: mechanisms, costs, deployment plans
-REFERENCE.md                — Quick reference
+cancer_candy_catalogue.md    — Full technical catalogue: mechanisms, costs, evidence
 pharma_restriction_clause.md — Legal restriction on pharma pricing exploitation
+REFERENCE.md                 — Quick reference
 
 src/ [planned]
-  sat_solver.py             — 3-SAT feasibility solver for GREEN nanocapsule manufacturing
-  stimulation_sat.py        — SILVER Apex Arc stimulation protocol optimizer
-  cost_calculator.py        — Cost models for all catalogue tiers
-  prior_art.py              — Cryptographic prior art timestamping
+  sat_solver.py              — 3-SAT feasibility solver for GREEN nanocapsule manufacturing
+  cost_calculator.py         — Cost models for prevention + detection tiers
+  prior_art.py               — Cryptographic prior art timestamping
 ```
 
-> **Note:** `src/` code is in active development. The algorithms are specified in this README; implementations are forthcoming.
+## Sister Project
 
-## Code
+**[Race to Cure Cancer](https://github.com/TimeLordRaps/race-to-cure-cancer)** — treatment and cure for those who already have cancer. Tiered by stage, stage 4 priority. All tiers inform all others.
 
-### SAT Solver (`src/sat_solver.py`)
-
-The GREEN nanocapsule has manufacturing constraints that form a 3-SAT problem: pH ranges, lipid ratios, D-xylose surface density, chromophore loading, particle size distributions, and stability windows must all be simultaneously satisfied. The solver maps the feasible manufacturing parameter space.
-
-### Stimulation Protocol Optimizer (`src/stimulation_sat.py`)
-
-The SILVER Apex Arc uses three physics (LIFU, electrical stimulation, photobiomodulation) applied through a single graphene pad. Finding optimal interference patterns across the three modalities — where constructive nodes land on target tissue — is a constraint satisfaction problem. This optimizer searches the parameter space.
-
-### Cost Calculator (`src/cost_calculator.py`)
-
-Computes deployment costs across all catalogue tiers. Answers questions like: "What does it cost to give D-Xylose to 500M people?" and "What's the cost-per-life-saved for ORANGE Tier 0 + Tier 1?"
-
-### Prior Art Proof (`src/prior_art.py`)
-
-Generates SHA-256 hashes of all catalogue documents with timestamps. This creates a cryptographic proof that these designs existed at a specific date — establishing prior art that prevents future patent claims on the mechanisms described here.
+Cancer Candy stops kids from getting cancer. Race to Cure Cancer helps those who already have it. If this repo does its job, that repo becomes unnecessary.
 
 ## Prior Art Notice
 
@@ -59,29 +130,15 @@ This repository constitutes **published prior art** under 35 U.S.C. § 102. All 
 
 Every mechanism cited has published evidence. Every cost estimate uses real market data. The compounds exist. The equipment exists. The manufacturing exists.
 
-## The Penny Per Patient Theorem
-
-Three products genuinely approach penny-per-patient economics:
-
-1. **WHITE (D-Xylose):** $0.01/dose. Proven. Scalable. GRAS since 1982. Ready now.
-2. **GREEN (Cancer Nanocapsule):** $0.01-0.10/dose at LNP manufacturing scale.
-3. **SILVER (Apex Arc):** $0.01/pad at 100M+ unit/year graphene manufacturing scale.
-
-## The Honest Math
-
-- **ORANGE Tier 0 + Tier 1** = $1.35B first year to prevent **1.8M neonatal deaths**. That's 67% of neonatal mortality for ~5% of the full NICU-everywhere cost ($1.35B ÷ $28.5B Tier 2).
-- **1B meals** = $50-60M. Benefit-cost ratio: **37:1** (Copenhagen Consensus 2024).
-- **D-Xylose at scale** = $0.01/dose × 500M people × 365 days = $1.8B/year.
-
-## License
-
-This work is licensed under [The Time License v3.0](LICENSE) — Tyler Roost / The TimeLord. Open prior art. Cannot be patented. That's the point.
-
-The canonical license lives at [TimeLordRaps/the-time-license](https://github.com/TimeLordRaps/the-time-license). This repo's LICENSE is auto-synced from that source.
-
 ## Pharma Restriction
 
 See [pharma_restriction_clause.md](pharma_restriction_clause.md). Any entity using these designs to charge more than 10× the documented manufacturing cost violates the spirit and intent of this disclosure. The catalogue exists to make healthcare cheaper, not to create new profit centers.
+
+## License
+
+This work is licensed under [The Time License](LICENSE) — Tyler Roost / The TimeLord. Open prior art. Cannot be patented. That's the point.
+
+Canonical: [TimeLordRaps/the-time-license](https://github.com/TimeLordRaps/the-time-license)
 
 ---
 

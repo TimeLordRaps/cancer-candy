@@ -116,7 +116,7 @@ Every cancer type maps to a unique hex color. This isn't cosmetic — it's compu
 | **Gradient edges** | Tumor margin definition (sharp = well-defined, diffuse = invasive) |
 | **Fade rate** | Vascularity (fast fade = well-perfused, slow fade = hypoxic core) |
 
-#### The 24-Hour Window
+#### The 24-Hour Window (Rapid Screening)
 
 The chromophores are designed to be **temporary** — metabolically cleared within 24 hours.
 
@@ -127,6 +127,51 @@ The chromophores are designed to be **temporary** — metabolically cleared with
 - **Hour 24+:** Clear skin. No permanent marking. No tattoo. No stigma.
 
 The 24hr window is critical for two reasons: (1) repeated screening — eat a candy quarterly, map the cancerome, track changes; (2) no permanent visible marker that could cause social stigma or discrimination.
+
+#### The 7-Day Window (Sustained Monitoring)
+
+**Same candy. Different encapsulation. One week of continuous cancer mapping — no extra purchases required.**
+
+The 7-day variant uses a **PLGA depot** (poly-lactic-co-glycolic acid) secondary encapsulation around the chromophore payload. Instead of releasing all chromophore at once (bolus → 24hr fade), the PLGA microsphere sits at the tumor site and erodes over 7 days, leaking chromophore to the skin surface continuously.
+
+**Why PLGA:**
+- FDA-approved biodegradable polymer (used in Lupron Depot, Zoladex, Risperdal Consta)
+- Tunable degradation rate: 50:50 PLGA = ~2 weeks, 75:25 PLGA = ~5 weeks. A 65:35 ratio targets the 7-day sweet spot.
+- Same D-Xylose/GLUT1 targeting. Same pH-triggered primary release. The PLGA is the secondary slow-release layer.
+- Fully metabolized to lactic acid + glycolic acid → CO2 + H2O. No accumulation.
+
+**7-Day Timeline:**
+
+| Day | What Happens | Splotch State |
+|-----|-------------|---------------|
+| **Day 0** | Candy ingested. Nanocapsules circulate. GLUT1 uptake at tumor sites. pH triggers primary capsule rupture. PLGA depots anchor at tumor site. | No visible splotch yet |
+| **Day 1** | PLGA surface erosion begins. First chromophore reaches dermis. | Faint splotch appears — initial detection signal |
+| **Day 2** | Steady-state chromophore release. Splotch intensifies. | Color readable. Position mappable. Scan window opens. |
+| **Day 3** | Peak depot release rate. Maximum chromophore at skin surface. | **Peak signal — optimal imaging day.** Best day for phone scan. |
+| **Day 4** | Sustained release continues. Splotch stable. | Doctor visit window. Splotch still strong. |
+| **Day 5** | PLGA bulk erosion phase begins. Release rate starts declining. | Splotch beginning to fade at edges. Core still vivid. |
+| **Day 6** | PLGA fragments fully. Remaining chromophore released. | Splotch fading. Still identifiable by app. |
+| **Day 7** | Chromophore cleared. PLGA metabolized completely. | Clear skin. Full cycle complete. |
+
+**Why 7 days matters:**
+
+| Problem with 24hr-only | How 7-day solves it |
+|------------------------|---------------------|
+| Need to schedule doctor visit within 6hr peak window | **7 days** to get to a doctor — especially in rural areas |
+| Must buy another candy if splotch fades before scan | **One candy is enough.** No repeat purchase. No cost barrier. |
+| Single timepoint = snapshot | **Daily progression tracking** over the week shows tumor behavior |
+| Rural/underserved patients can't reach clinic in 24hr | **A week to travel.** Even the most remote patient has time. |
+| Phone was dead during the 6hr window | **Multiple scan opportunities** across 7 days |
+| Anxiety of "I have to check NOW" | **Calm monitoring.** Day 3 is optimal but Days 2-5 all work. |
+
+**Two-tier product line:**
+
+| Tier | Duration | Use Case | Cost |
+|------|----------|----------|------|
+| **FLASH** (24hr) | 24 hours | Rapid screening events, clinical settings, mass screening campaigns | $0.01-0.10/dose |
+| **WATCH** (7-day) | 7 days | Take-home monitoring, rural deployment, self-screening, progression tracking | $0.05-0.30/dose |
+
+Both tiers available in all 24 flavors. Same candy forms. The difference is the chromophore encapsulation layer — FLASH uses free chromophore (immediate release, fast clearance). WATCH wraps the chromophore in 65:35 PLGA (sustained release, 7-day clearance).
 
 #### Nanocapsule Versions
 
@@ -148,6 +193,9 @@ The 24hr window is critical for two reasons: (1) repeated screening — eat a ca
 4. **Depth-to-surface signal attenuation** — deep tumors (pancreatic, ovarian) produce weaker skin signals than superficial tumors (breast, melanoma). Needs: chromophore amplification cascade or enzymatic signal boosting at depth.
 5. **Regulatory pathway** — this is a diagnostic, not a therapeutic. FDA IVD pathway vs drug pathway vs combination product. Classification determines timeline.
 6. **False positive rate** — inflammation, infection, and wound healing also lower local pH. Needs: secondary tumor-specific trigger beyond pH alone (e.g., matrix metalloproteinase cleavage, hypoxia-responsive element).
+7. **PLGA burst release suppression** — 65:35 PLGA microspheres can have a 15-30% initial burst on Day 0. Needs: surface PEGylation or double-walled PLGA-PLA core-shell microsphere to flatten the release curve.
+8. **7-day chromophore photo-stability** — chromophores at dermal depth are exposed to ambient UV for 7 days instead of 24 hours. Potential photobleaching reduces signal by Day 5-6. Needs: UV-resistant chromophore derivatives or deeper depot placement.
+9. **WATCH-tier regulatory classification** — a 7-day sustained-release diagnostic nanocapsule may be classified differently than a 24hr cleared diagnostic. Needs: FDA pre-submission meeting to clarify IVD vs drug-device combination for sustained-release variant.
 
 ---
 
@@ -197,11 +245,66 @@ cancer_candy_catalogue.md    — Full technical catalogue: mechanisms, costs, ev
 pharma_restriction_clause.md — Legal restriction on pharma pricing exploitation
 REFERENCE.md                 — Quick reference
 
-src/ [planned]
+src/pwa/                     — CanceromeScanner PWA (phone camera → splotch → doctor)
+  index.html                 — App shell
+  manifest.json              — PWA install metadata
+  service-worker.js          — Offline-first cache
+  styles.css                 — Mobile-first responsive layout
+  js/
+    app.js                   — Main orchestrator
+    camera.js                — getUserMedia capture + frame extraction
+    hex-lookup.js            — RGB → hex → cancer type identification
+    skin-calibration.js      — Fitzpatrick I-VI melanin offset correction
+    body-mapper.js           — Anatomical coordinate mapping
+    splotch-analyzer.js      — Feature extraction (size, intensity, edges, satellites)
+    severity-scorer.js       — Triage scoring from splotch features
+    doctor-router.js         — Cancer type → specialist routing
+    timeline.js              — Temporal progression tracking (24hr + 7-day)
+    cancerome-3d.js          — Full-body 3D cancerome visualization
+    export.js                — Encrypted PDF + FHIR bundle export
+  doctor-dashboard.html      — Clinician intake view
+  dashboard.js               — Dashboard logic + patient queue
+  data/
+    cancer-types.json        — 24 cancer types, hex codes, chromophore classes
+    body-regions.json        — Anatomical region → coordinate map
+    specialist-types.json    — Cancer type → doctor specialty routing
+    fitzpatrick-calibration.json — Skin tone RGB offsets (Fitzpatrick I-VI)
+    severity-rules.json      — Triage scoring rules
+
+src/python/
   sat_solver.py              — 3-SAT feasibility solver for GREEN nanocapsule manufacturing
   cost_calculator.py         — Cost models for prevention + detection tiers
   prior_art.py               — Cryptographic prior art timestamping
 ```
+
+## CanceromeScanner — The App
+
+**Eat the candy. Open the app. Point the camera. Know everything.**
+
+The CanceromeScanner is a Progressive Web App that turns any smartphone into a cancer detection terminal. It reads the hex-coded splotches produced by the GREEN nanocapsule, maps them to cancer types, scores severity, and routes the patient to the right doctor — all offline, all encrypted, all free.
+
+**How it works:**
+1. **Scan** — Phone camera captures splotch image
+2. **Calibrate** — Skin tone detection (Fitzpatrick I-VI) applies melanin correction to RGB values
+3. **Identify** — Corrected hex values matched against 24 cancer type database
+4. **Map** — Splotch position mapped to anatomical body region
+5. **Analyze** — Splotch features extracted: size, intensity, edge gradient, satellite count, fade rate
+6. **Score** — Severity triage from splotch features: LOW / MODERATE / HIGH / CRITICAL
+7. **Route** — Cancer type → specialist mapping → nearest provider (if online)
+8. **Track** — Time-series comparison: this scan vs previous scans → progression detection
+9. **Export** — Encrypted PDF report or FHIR R4 bundle for clinical handoff
+
+**Key design decisions:**
+- **Offline-first** — works without internet. Critical for rural deployment.
+- **No account required** — no login, no cloud, no data collection. Scan data stays on-device.
+- **Encrypted export only** — patient controls when and how data leaves their phone.
+- **Free forever** — this is a healthcare tool, not a revenue stream.
+
+**Doctor Dashboard:** A separate clinician view where doctors can receive encrypted patient scans, view the cancerome map, and triage incoming patients by severity score.
+
+### Screenshots
+
+> Screenshots will be added once the first prototype build is running. The app is a PWA — install it from any browser, no app store required.
 
 ## Sister Project
 

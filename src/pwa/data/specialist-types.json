@@ -1,0 +1,100 @@
+{
+  "version": "1.0.0",
+  "description": "Cancer type to medical specialist routing table",
+  "specialists": [
+    {
+      "id": "breast-oncologist",
+      "title": "Breast Oncologist / Breast Surgeon",
+      "urgencyNote": "Triple-negative breast cancer requires immediate referral",
+      "cancerTypes": ["breast"]
+    },
+    {
+      "id": "pulmonary-oncologist",
+      "title": "Pulmonary / Thoracic Oncologist",
+      "urgencyNote": "Small cell lung cancer is fast-growing — urgent referral",
+      "cancerTypes": ["lung"]
+    },
+    {
+      "id": "gastrointestinal-oncologist",
+      "title": "Gastrointestinal Oncologist",
+      "urgencyNote": "Pancreatic cancer has the worst 5-year survival — immediate referral",
+      "cancerTypes": ["colorectal", "pancreatic", "stomach", "esophageal"]
+    },
+    {
+      "id": "urologic-oncologist",
+      "title": "Urologic Oncologist",
+      "urgencyNote": "Testicular cancer has high cure rates even at advanced stages — fast referral still critical",
+      "cancerTypes": ["prostate", "kidney-rcc", "bladder", "testicular"]
+    },
+    {
+      "id": "dermatologic-oncologist",
+      "title": "Dermatologic Oncologist / Mohs Surgeon",
+      "urgencyNote": "Melanoma metastasizes rapidly — same-week referral",
+      "cancerTypes": ["melanoma"]
+    },
+    {
+      "id": "hematologic-oncologist",
+      "title": "Hematologist / Oncologist",
+      "urgencyNote": "Acute leukemias require same-day emergency evaluation",
+      "cancerTypes": ["lymphoma", "leukemia", "non-hodgkin"]
+    },
+    {
+      "id": "hepatobiliary-oncologist",
+      "title": "Hepatobiliary Oncologist / Transplant Surgeon",
+      "urgencyNote": "HCC staging determines transplant eligibility — early referral critical",
+      "cancerTypes": ["liver-hcc"]
+    },
+    {
+      "id": "endocrine-oncologist",
+      "title": "Endocrine Surgeon / Oncologist",
+      "urgencyNote": "Most thyroid cancers are slow-growing but anaplastic thyroid is emergency",
+      "cancerTypes": ["thyroid"]
+    },
+    {
+      "id": "neuro-oncologist",
+      "title": "Neuro-Oncologist / Neurosurgeon",
+      "urgencyNote": "Brain tumors cause rapid neurological decline — urgent imaging and referral",
+      "cancerTypes": ["brain-cns"]
+    },
+    {
+      "id": "gynecologic-oncologist",
+      "title": "Gynecologic Oncologist",
+      "urgencyNote": "Ovarian cancer is typically detected late — any signal warrants immediate workup",
+      "cancerTypes": ["ovarian", "uterine", "cervical"]
+    },
+    {
+      "id": "orthopedic-oncologist",
+      "title": "Orthopedic Oncologist / Musculoskeletal Surgeon",
+      "urgencyNote": "Sarcomas are rare — referral to specialized sarcoma center preferred",
+      "cancerTypes": ["bone-sarcoma"]
+    },
+    {
+      "id": "head-neck-oncologist",
+      "title": "Head & Neck Surgeon / Oncologist",
+      "urgencyNote": "HPV-positive head and neck cancers have better prognosis but still need staged treatment",
+      "cancerTypes": ["head-neck"]
+    },
+    {
+      "id": "thoracic-oncologist",
+      "title": "Thoracic Oncologist / Mesothelioma Specialist",
+      "urgencyNote": "Mesothelioma is asbestos-linked and aggressive — specialized center mandatory",
+      "cancerTypes": ["mesothelioma"]
+    },
+    {
+      "id": "pediatric-oncologist",
+      "title": "Pediatric Oncologist",
+      "urgencyNote": "Neuroblastoma primarily affects children under 5 — pediatric center required",
+      "cancerTypes": ["neuroblastoma"]
+    }
+  ],
+  "emergencyTriggers": {
+    "description": "Conditions that override normal routing and trigger ER recommendation",
+    "triggers": [
+      "CRITICAL severity score",
+      "Multiple cancer types detected simultaneously",
+      "Rapid splotch progression between scans (>50% size increase in 24hr)",
+      "Brain/CNS detection in any patient",
+      "Any detection in patient under 18"
+    ]
+  }
+}

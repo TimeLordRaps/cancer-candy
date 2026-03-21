@@ -1,0 +1,29 @@
+{
+  "name": "CanceromeScanner",
+  "short_name": "Cancerome",
+  "description": "Scan cancer candy splotches with your phone camera. Get instant cancer type identification, severity scoring, and doctor routing. Offline-first. Free forever.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#FF1493",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical"],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false
+}

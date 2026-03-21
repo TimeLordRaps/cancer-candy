@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#FF1493">
+  <meta name="description" content="Scan cancer candy splotches. Identify cancer type. Score severity. Route to doctor. Free. Offline. Now.">
+  <title>CanceromeScanner</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+  <header>
+    <h1>CanceromeScanner</h1>
+    <p class="tagline">Eat the candy. Open the app. Point the camera. Know everything.</p>
+  </header>
+
+  <main>
+    <!-- Step 1: Skin Calibration -->
+    <section id="step-calibrate" class="step active">
+      <h2>Step 1: Calibrate Skin Tone</h2>
+      <p>Point your camera at a patch of <strong>unaffected skin</strong> near the splotch. This corrects for melanin so the hex reading is accurate.</p>
+      <div id="calibration-preview" class="camera-preview"></div>
+      <div class="skin-type-display">
+        <span id="detected-skin-type">--</span>
+        <span id="skin-type-name"></span>
+      </div>
+      <div class="button-row">
+        <button id="btn-calibrate" class="btn-primary">Capture Skin Reference</button>
+        <button id="btn-skip-calibrate" class="btn-secondary">Skip (use default)</button>
+      </div>
+    </section>
+
+    <!-- Step 2: Scan Splotch -->
+    <section id="step-scan" class="step">
+      <h2>Step 2: Scan Splotch</h2>
+      <p>Point your camera at the <strong>colored splotch</strong>. Hold steady.</p>
+      <div id="scan-preview" class="camera-preview">
+        <canvas id="scan-canvas"></canvas>
+        <div id="scan-crosshair" class="crosshair"></div>
+      </div>
+      <div class="scan-info">
+        <div class="hex-display">
+          <span class="hex-label">Detected:</span>
+          <span id="hex-value" class="hex-value">#------</span>
+          <span id="hex-swatch" class="hex-swatch"></span>
+        </div>
+        <div id="cancer-type-match" class="match-display">--</div>
+      </div>
+      <div class="button-row">
+        <button id="btn-capture" class="btn-primary">Capture Splotch</button>
+        <button id="btn-back-calibrate" class="btn-secondary">Back</button>
+      </div>
+    </section>
+
+    <!-- Step 3: Body Position -->
+    <section id="step-position" class="step">
+      <h2>Step 3: Mark Body Position</h2>
+      <p>Tap where on the body the splotch is located.</p>
+      <div id="body-map-container" class="body-map">
+        <svg id="body-svg" viewBox="0 0 200 500" class="body-outline">
+          <!-- Simplified anterior body outline -->
+          <ellipse cx="100" cy="30" rx="22" ry="28" class="body-part" data-region="head" />
+          <rect x="85" y="58" width="30" height="15" rx="5" class="body-part" data-region="neck-anterior" />
+          <rect x="60" y="73" width="80" height="55" rx="10" class="body-part" data-region="chest" />
+          <rect x="65" y="128" width="70" height="50" rx="5" class="body-part" data-region="abdomen-upper-center" />
+          <rect x="65" y="178" width="70" height="40" rx="5" class="body-part" data-region="abdomen-lower" />
+          <rect x="70" y="218" width="60" height="40" rx="8" class="body-part" data-region="pelvis" />
+          <rect x="70" y="258" width="25" height="100" rx="8" class="body-part" data-region="extremities" />
+          <rect x="105" y="258" width="25" height="100" rx="8" class="body-part" data-region="extremities" />
+          <rect x="32" y="80" width="22" height="90" rx="8" class="body-part" data-region="extremities" />
+          <rect x="146" y="80" width="22" height="90" rx="8" class="body-part" data-region="extremities" />
+          <rect x="70" y="358" width="25" height="110" rx="8" class="body-part" data-region="extremities" />
+          <rect x="105" y="358" width="25" height="110" rx="8" class="body-part" data-region="extremities" />
+        </svg>
+        <div id="position-label" class="position-label">Tap a body region</div>
+      </div>
+      <div class="button-row">
+        <button id="btn-confirm-position" class="btn-primary" disabled>Confirm Position</button>
+        <button id="btn-back-scan" class="btn-secondary">Back</button>
+      </div>
+    </section>
+
+    <!-- Step 4: Analysis Results -->
+    <section id="step-results" class="step">
+      <h2>Step 4: Results</h2>
+      <div id="results-container">
+        <div class="result-card" id="card-type">
+          <h3>Cancer Type</h3>
+          <div id="result-type-name" class="result-value">--</div>
+          <div id="result-type-hex" class="result-hex">--</div>
+          <div id="result-chromophore" class="result-detail">--</div>
+        </div>
+
+        <div class="result-card" id="card-severity">
+          <h3>Severity Score</h3>
+          <div id="result-severity-level" class="severity-badge">--</div>
+          <div id="result-severity-score" class="result-value">--</div>
+          <div id="result-severity-action" class="result-action">--</div>
+        </div>
+
+        <div class="result-card" id="card-features">
+          <h3>Splotch Features</h3>
+          <table id="features-table">
+            <tr><td>Size</td><td id="feat-size">--</td></tr>
+            <tr><td>Intensity</td><td id="feat-intensity">--</td></tr>
+            <tr><td>Edge</td><td id="feat-edge">--</td></tr>
+            <tr><td>Satellites</td><td id="feat-satellites">--</td></tr>
+            <tr><td>Fade Rate</td><td id="feat-fade">--</td></tr>
+          </table>
+        </div>
+
+        <div class="result-card" id="card-doctor">
+          <h3>Recommended Specialist</h3>
+          <div id="result-specialist" class="result-value">--</div>
+          <div id="result-urgency" class="result-detail">--</div>
+        </div>
+
+        <div class="result-card" id="card-timeline">
+          <h3>Scan History</h3>
+          <div id="timeline-chart" class="timeline-chart">
+            <p class="empty-state">First scan — no history yet.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button id="btn-export" class="btn-primary">Export Encrypted Report</button>
+        <button id="btn-new-scan" class="btn-secondary">New Scan</button>
+        <button id="btn-3d-view" class="btn-secondary">3D Cancerome</button>
+      </div>
+
+      <div class="disclaimer">
+        <strong>This is a triage aid, not a diagnosis.</strong> All detections require clinical confirmation via imaging and biopsy. When in doubt, see a doctor.
+      </div>
+    </section>
+
+    <!-- 3D Cancerome View (overlay) -->
+    <section id="step-3d" class="step overlay">
+      <h2>Full Body Cancerome</h2>
+      <div id="cancerome-3d-container" class="cancerome-3d"></div>
+      <div class="button-row">
+        <button id="btn-close-3d" class="btn-secondary">Close</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CanceromeScanner — Free. Offline. No account. No cloud. Your data stays on your phone.</p>
+    <p>Part of the <a href="https://github.com/TimeLordRaps/cancer-candy">Cancer Candy</a> project.</p>
+  </footer>
+
+  <!-- Load order matters: data modules first, then pipeline, then orchestrator -->
+  <script type="module" src="js/hex-lookup.js"></script>
+  <script type="module" src="js/skin-calibration.js"></script>
+  <script type="module" src="js/body-mapper.js"></script>
+  <script type="module" src="js/splotch-analyzer.js"></script>
+  <script type="module" src="js/severity-scorer.js"></script>
+  <script type="module" src="js/doctor-router.js"></script>
+  <script type="module" src="js/timeline.js"></script>
+  <script type="module" src="js/cancerome-3d.js"></script>
+  <script type="module" src="js/export.js"></script>
+  <script type="module" src="js/camera.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

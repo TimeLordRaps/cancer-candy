@@ -1,0 +1,252 @@
+{
+  "version": "1.0.0",
+  "description": "24 cancer types with hex codes, chromophore classes, and anatomical regions",
+  "types": [
+    {
+      "id": "breast",
+      "name": "Breast",
+      "hex": "#FF1493",
+      "rgb": [255, 20, 147],
+      "chromophore": "Rhodamine derivative",
+      "primaryRegion": "chest",
+      "metastaticRegions": ["axillary", "chest-wall", "spine", "liver", "lung"],
+      "specialist": "breast-oncologist"
+    },
+    {
+      "id": "lung",
+      "name": "Lung",
+      "hex": "#4169E1",
+      "rgb": [65, 105, 225],
+      "chromophore": "Cyanine derivative",
+      "primaryRegion": "thorax",
+      "metastaticRegions": ["brain", "bone", "liver", "adrenal"],
+      "specialist": "pulmonary-oncologist"
+    },
+    {
+      "id": "colorectal",
+      "name": "Colorectal",
+      "hex": "#8B4513",
+      "rgb": [139, 69, 19],
+      "chromophore": "Azo compound",
+      "primaryRegion": "abdomen-lower",
+      "metastaticRegions": ["liver", "lung", "peritoneum"],
+      "specialist": "gastrointestinal-oncologist"
+    },
+    {
+      "id": "prostate",
+      "name": "Prostate",
+      "hex": "#00CED1",
+      "rgb": [0, 206, 209],
+      "chromophore": "Phthalocyanine",
+      "primaryRegion": "pelvis",
+      "metastaticRegions": ["bone", "spine", "lymph-pelvic"],
+      "specialist": "urologic-oncologist"
+    },
+    {
+      "id": "melanoma",
+      "name": "Melanoma",
+      "hex": "#2F4F4F",
+      "rgb": [47, 79, 79],
+      "chromophore": "Carbon dot",
+      "primaryRegion": "skin-any",
+      "metastaticRegions": ["brain", "lung", "liver", "bone", "skin-distant"],
+      "specialist": "dermatologic-oncologist"
+    },
+    {
+      "id": "lymphoma",
+      "name": "Lymphoma",
+      "hex": "#9370DB",
+      "rgb": [147, 112, 219],
+      "chromophore": "Anthracyanin derivative",
+      "primaryRegion": "lymph-nodes",
+      "metastaticRegions": ["spleen", "bone-marrow", "liver"],
+      "specialist": "hematologic-oncologist"
+    },
+    {
+      "id": "leukemia",
+      "name": "Leukemia",
+      "hex": "#FFD700",
+      "rgb": [255, 215, 0],
+      "chromophore": "Fluorescein derivative",
+      "primaryRegion": "bone-marrow",
+      "metastaticRegions": ["spleen", "liver", "lymph-nodes", "brain"],
+      "specialist": "hematologic-oncologist"
+    },
+    {
+      "id": "liver-hcc",
+      "name": "Liver (HCC)",
+      "hex": "#B22222",
+      "rgb": [178, 34, 34],
+      "chromophore": "Hematoporphyrin",
+      "primaryRegion": "abdomen-upper-right",
+      "metastaticRegions": ["lung", "bone", "adrenal", "peritoneum"],
+      "specialist": "hepatobiliary-oncologist"
+    },
+    {
+      "id": "pancreatic",
+      "name": "Pancreatic",
+      "hex": "#556B2F",
+      "rgb": [85, 107, 47],
+      "chromophore": "Chlorophyll derivative",
+      "primaryRegion": "abdomen-upper-center",
+      "metastaticRegions": ["liver", "peritoneum", "lung"],
+      "specialist": "gastrointestinal-oncologist"
+    },
+    {
+      "id": "kidney-rcc",
+      "name": "Kidney (RCC)",
+      "hex": "#FF6347",
+      "rgb": [255, 99, 71],
+      "chromophore": "Squaraine dye",
+      "primaryRegion": "flank",
+      "metastaticRegions": ["lung", "bone", "brain", "liver"],
+      "specialist": "urologic-oncologist"
+    },
+    {
+      "id": "bladder",
+      "name": "Bladder",
+      "hex": "#87CEEB",
+      "rgb": [135, 206, 235],
+      "chromophore": "Coumarin derivative",
+      "primaryRegion": "pelvis-anterior",
+      "metastaticRegions": ["lymph-pelvic", "lung", "bone", "liver"],
+      "specialist": "urologic-oncologist"
+    },
+    {
+      "id": "thyroid",
+      "name": "Thyroid",
+      "hex": "#DA70D6",
+      "rgb": [218, 112, 214],
+      "chromophore": "BODIPY derivative",
+      "primaryRegion": "neck-anterior",
+      "metastaticRegions": ["lung", "bone", "lymph-cervical"],
+      "specialist": "endocrine-oncologist"
+    },
+    {
+      "id": "brain-cns",
+      "name": "Brain/CNS",
+      "hex": "#C0C0C0",
+      "rgb": [192, 192, 192],
+      "chromophore": "Gadolinium chelate-linked",
+      "primaryRegion": "head",
+      "metastaticRegions": ["spine"],
+      "specialist": "neuro-oncologist"
+    },
+    {
+      "id": "ovarian",
+      "name": "Ovarian",
+      "hex": "#FF69B4",
+      "rgb": [255, 105, 180],
+      "chromophore": "Cy5.5 derivative",
+      "primaryRegion": "pelvis-bilateral",
+      "metastaticRegions": ["peritoneum", "omentum", "liver", "lung"],
+      "specialist": "gynecologic-oncologist"
+    },
+    {
+      "id": "uterine",
+      "name": "Uterine",
+      "hex": "#DB7093",
+      "rgb": [219, 112, 147],
+      "chromophore": "Alexa Fluor analog",
+      "primaryRegion": "pelvis-center",
+      "metastaticRegions": ["peritoneum", "lung", "liver"],
+      "specialist": "gynecologic-oncologist"
+    },
+    {
+      "id": "stomach",
+      "name": "Stomach",
+      "hex": "#CD853F",
+      "rgb": [205, 133, 63],
+      "chromophore": "Curcuminoid",
+      "primaryRegion": "abdomen-upper-left",
+      "metastaticRegions": ["peritoneum", "liver", "lung"],
+      "specialist": "gastrointestinal-oncologist"
+    },
+    {
+      "id": "esophageal",
+      "name": "Esophageal",
+      "hex": "#D2691E",
+      "rgb": [210, 105, 30],
+      "chromophore": "Natural phenazine",
+      "primaryRegion": "thorax-center",
+      "metastaticRegions": ["liver", "lung", "bone"],
+      "specialist": "gastrointestinal-oncologist"
+    },
+    {
+      "id": "cervical",
+      "name": "Cervical",
+      "hex": "#FF4500",
+      "rgb": [255, 69, 0],
+      "chromophore": "Porphyrin derivative",
+      "primaryRegion": "pelvis-lower",
+      "metastaticRegions": ["lymph-pelvic", "lung", "liver"],
+      "specialist": "gynecologic-oncologist"
+    },
+    {
+      "id": "testicular",
+      "name": "Testicular",
+      "hex": "#1E90FF",
+      "rgb": [30, 144, 255],
+      "chromophore": "Indocyanine derivative",
+      "primaryRegion": "groin",
+      "metastaticRegions": ["retroperitoneal", "lung", "brain"],
+      "specialist": "urologic-oncologist"
+    },
+    {
+      "id": "bone-sarcoma",
+      "name": "Bone/Sarcoma",
+      "hex": "#F5F5DC",
+      "rgb": [245, 245, 220],
+      "chromophore": "Calcium-responsive luminophore",
+      "primaryRegion": "extremities",
+      "metastaticRegions": ["lung", "bone-distant"],
+      "specialist": "orthopedic-oncologist"
+    },
+    {
+      "id": "head-neck",
+      "name": "Head & Neck",
+      "hex": "#FFA500",
+      "rgb": [255, 165, 0],
+      "chromophore": "Carotenoid derivative",
+      "primaryRegion": "head-neck",
+      "metastaticRegions": ["lymph-cervical", "lung"],
+      "specialist": "head-neck-oncologist"
+    },
+    {
+      "id": "non-hodgkin",
+      "name": "Non-Hodgkin Lymphoma",
+      "hex": "#7B68EE",
+      "rgb": [123, 104, 238],
+      "chromophore": "Perylene diimide",
+      "primaryRegion": "lymph-nodes",
+      "metastaticRegions": ["spleen", "bone-marrow", "liver", "gi-tract"],
+      "specialist": "hematologic-oncologist"
+    },
+    {
+      "id": "mesothelioma",
+      "name": "Mesothelioma",
+      "hex": "#708090",
+      "rgb": [112, 128, 144],
+      "chromophore": "Naphthalocyanine",
+      "primaryRegion": "thorax-pleural",
+      "metastaticRegions": ["peritoneum", "chest-wall"],
+      "specialist": "thoracic-oncologist"
+    },
+    {
+      "id": "neuroblastoma",
+      "name": "Neuroblastoma",
+      "hex": "#ADFF2F",
+      "rgb": [173, 255, 47],
+      "chromophore": "Quantum dot (CdSe-free)",
+      "primaryRegion": "abdomen-adrenal",
+      "metastaticRegions": ["bone", "bone-marrow", "liver", "skin"],
+      "specialist": "pediatric-oncologist"
+    }
+  ],
+  "hexColorTolerance": {
+    "description": "Maximum deltaE (CIE2000) for positive match after Fitzpatrick calibration",
+    "matchThreshold": 15,
+    "probableThreshold": 25,
+    "possibleThreshold": 35
+  }
+}

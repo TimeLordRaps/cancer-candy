@@ -1,0 +1,202 @@
+{
+  "version": "1.0.0",
+  "description": "Anatomical body regions for splotch position mapping",
+  "regions": [
+    {
+      "id": "head",
+      "name": "Head",
+      "bodyZone": "superior",
+      "coordinates": { "x": [0.42, 0.58], "y": [0.0, 0.12] },
+      "associatedCancers": ["brain-cns", "melanoma"]
+    },
+    {
+      "id": "head-neck",
+      "name": "Head & Neck",
+      "bodyZone": "superior",
+      "coordinates": { "x": [0.38, 0.62], "y": [0.0, 0.16] },
+      "associatedCancers": ["head-neck", "thyroid"]
+    },
+    {
+      "id": "neck-anterior",
+      "name": "Neck (Anterior)",
+      "bodyZone": "superior",
+      "coordinates": { "x": [0.42, 0.58], "y": [0.12, 0.16] },
+      "associatedCancers": ["thyroid", "head-neck", "esophageal"]
+    },
+    {
+      "id": "chest",
+      "name": "Chest",
+      "bodyZone": "thorax",
+      "coordinates": { "x": [0.30, 0.70], "y": [0.18, 0.32] },
+      "associatedCancers": ["breast", "lung"]
+    },
+    {
+      "id": "thorax",
+      "name": "Thorax",
+      "bodyZone": "thorax",
+      "coordinates": { "x": [0.25, 0.75], "y": [0.16, 0.36] },
+      "associatedCancers": ["lung", "esophageal", "mesothelioma"]
+    },
+    {
+      "id": "thorax-center",
+      "name": "Thorax (Center)",
+      "bodyZone": "thorax",
+      "coordinates": { "x": [0.40, 0.60], "y": [0.18, 0.34] },
+      "associatedCancers": ["esophageal", "lymphoma"]
+    },
+    {
+      "id": "thorax-pleural",
+      "name": "Thorax (Pleural)",
+      "bodyZone": "thorax",
+      "coordinates": { "x": [0.25, 0.75], "y": [0.18, 0.36] },
+      "associatedCancers": ["mesothelioma"]
+    },
+    {
+      "id": "axillary",
+      "name": "Axillary (Armpit)",
+      "bodyZone": "thorax",
+      "coordinates": { "x": [0.22, 0.30], "y": [0.22, 0.30] },
+      "associatedCancers": ["breast", "lymphoma"]
+    },
+    {
+      "id": "abdomen-upper-right",
+      "name": "Abdomen (Upper Right)",
+      "bodyZone": "abdomen",
+      "coordinates": { "x": [0.50, 0.68], "y": [0.36, 0.46] },
+      "associatedCancers": ["liver-hcc"]
+    },
+    {
+      "id": "abdomen-upper-left",
+      "name": "Abdomen (Upper Left)",
+      "bodyZone": "abdomen",
+      "coordinates": { "x": [0.32, 0.50], "y": [0.36, 0.46] },
+      "associatedCancers": ["stomach"]
+    },
+    {
+      "id": "abdomen-upper-center",
+      "name": "Abdomen (Upper Center)",
+      "bodyZone": "abdomen",
+      "coordinates": { "x": [0.38, 0.62], "y": [0.36, 0.48] },
+      "associatedCancers": ["pancreatic", "stomach"]
+    },
+    {
+      "id": "abdomen-lower",
+      "name": "Abdomen (Lower)",
+      "bodyZone": "abdomen",
+      "coordinates": { "x": [0.32, 0.68], "y": [0.46, 0.56] },
+      "associatedCancers": ["colorectal"]
+    },
+    {
+      "id": "abdomen-adrenal",
+      "name": "Abdomen (Adrenal)",
+      "bodyZone": "abdomen",
+      "coordinates": { "x": [0.35, 0.65], "y": [0.38, 0.44] },
+      "associatedCancers": ["neuroblastoma"]
+    },
+    {
+      "id": "flank",
+      "name": "Flank (Bilateral)",
+      "bodyZone": "abdomen",
+      "coordinates": { "x": [0.25, 0.35], "y": [0.38, 0.48] },
+      "associatedCancers": ["kidney-rcc"]
+    },
+    {
+      "id": "pelvis",
+      "name": "Pelvis",
+      "bodyZone": "pelvis",
+      "coordinates": { "x": [0.35, 0.65], "y": [0.54, 0.64] },
+      "associatedCancers": ["prostate", "bladder", "cervical", "uterine", "ovarian"]
+    },
+    {
+      "id": "pelvis-anterior",
+      "name": "Pelvis (Anterior)",
+      "bodyZone": "pelvis",
+      "coordinates": { "x": [0.40, 0.60], "y": [0.56, 0.62] },
+      "associatedCancers": ["bladder"]
+    },
+    {
+      "id": "pelvis-bilateral",
+      "name": "Pelvis (Bilateral)",
+      "bodyZone": "pelvis",
+      "coordinates": { "x": [0.32, 0.68], "y": [0.54, 0.62] },
+      "associatedCancers": ["ovarian"]
+    },
+    {
+      "id": "pelvis-center",
+      "name": "Pelvis (Center)",
+      "bodyZone": "pelvis",
+      "coordinates": { "x": [0.42, 0.58], "y": [0.56, 0.64] },
+      "associatedCancers": ["uterine"]
+    },
+    {
+      "id": "pelvis-lower",
+      "name": "Pelvis (Lower)",
+      "bodyZone": "pelvis",
+      "coordinates": { "x": [0.42, 0.58], "y": [0.60, 0.66] },
+      "associatedCancers": ["cervical"]
+    },
+    {
+      "id": "groin",
+      "name": "Groin",
+      "bodyZone": "pelvis",
+      "coordinates": { "x": [0.40, 0.60], "y": [0.64, 0.70] },
+      "associatedCancers": ["testicular"]
+    },
+    {
+      "id": "retroperitoneal",
+      "name": "Retroperitoneal",
+      "bodyZone": "abdomen",
+      "coordinates": { "x": [0.38, 0.62], "y": [0.42, 0.56] },
+      "associatedCancers": ["testicular"]
+    },
+    {
+      "id": "extremities",
+      "name": "Extremities",
+      "bodyZone": "limbs",
+      "coordinates": { "x": [0.0, 0.25], "y": [0.30, 1.0] },
+      "associatedCancers": ["bone-sarcoma", "melanoma"]
+    },
+    {
+      "id": "lymph-nodes",
+      "name": "Lymph Nodes (Distributed)",
+      "bodyZone": "systemic",
+      "coordinates": { "x": [0.0, 1.0], "y": [0.0, 1.0] },
+      "associatedCancers": ["lymphoma", "non-hodgkin"]
+    },
+    {
+      "id": "lymph-cervical",
+      "name": "Cervical Lymph Nodes",
+      "bodyZone": "superior",
+      "coordinates": { "x": [0.35, 0.65], "y": [0.12, 0.18] },
+      "associatedCancers": ["head-neck", "thyroid"]
+    },
+    {
+      "id": "lymph-pelvic",
+      "name": "Pelvic Lymph Nodes",
+      "bodyZone": "pelvis",
+      "coordinates": { "x": [0.32, 0.68], "y": [0.54, 0.64] },
+      "associatedCancers": ["prostate", "cervical", "bladder"]
+    },
+    {
+      "id": "bone-marrow",
+      "name": "Bone Marrow (Systemic)",
+      "bodyZone": "systemic",
+      "coordinates": { "x": [0.0, 1.0], "y": [0.0, 1.0] },
+      "associatedCancers": ["leukemia", "non-hodgkin"]
+    },
+    {
+      "id": "spine",
+      "name": "Spine",
+      "bodyZone": "posterior",
+      "coordinates": { "x": [0.45, 0.55], "y": [0.16, 0.60] },
+      "associatedCancers": ["breast", "prostate", "brain-cns"]
+    },
+    {
+      "id": "skin-any",
+      "name": "Skin (Any Location)",
+      "bodyZone": "systemic",
+      "coordinates": { "x": [0.0, 1.0], "y": [0.0, 1.0] },
+      "associatedCancers": ["melanoma"]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "version": "1.0.0",
+  "description": "Severity scoring rules from splotch feature extraction",
+  "features": {
+    "size": {
+      "description": "Splotch diameter in cm (estimated from camera distance + reference calibration)",
+      "thresholds": {
+        "minimal": { "max": 1.0, "score": 1 },
+        "small": { "min": 1.0, "max": 3.0, "score": 2 },
+        "medium": { "min": 3.0, "max": 6.0, "score": 3 },
+        "large": { "min": 6.0, "max": 10.0, "score": 4 },
+        "massive": { "min": 10.0, "score": 5 }
+      }
+    },
+    "intensity": {
+      "description": "Color saturation relative to expected hex value (0.0-1.0)",
+      "thresholds": {
+        "faint": { "max": 0.3, "score": 1 },
+        "moderate": { "min": 0.3, "max": 0.6, "score": 2 },
+        "strong": { "min": 0.6, "max": 0.8, "score": 3 },
+        "vivid": { "min": 0.8, "score": 4 }
+      }
+    },
+    "edgeGradient": {
+      "description": "Sharpness of splotch boundary (sharp = well-defined tumor, diffuse = invasive)",
+      "thresholds": {
+        "sharp": { "min": 0.8, "score": 1, "interpretation": "Well-defined tumor margins" },
+        "moderate": { "min": 0.4, "max": 0.8, "score": 2, "interpretation": "Partially defined margins" },
+        "diffuse": { "max": 0.4, "score": 4, "interpretation": "Invasive tumor with unclear margins" }
+      }
+    },
+    "satelliteCount": {
+      "description": "Number of distinct satellite splotches near the primary",
+      "thresholds": {
+        "none": { "max": 0, "score": 0, "interpretation": "No detected metastasis" },
+        "few": { "min": 1, "max": 3, "score": 2, "interpretation": "Possible regional spread" },
+        "moderate": { "min": 4, "max": 8, "score": 4, "interpretation": "Likely lymphatic spread" },
+        "many": { "min": 9, "score": 5, "interpretation": "Extensive metastatic spread" }
+      }
+    },
+    "fadeRate": {
+      "description": "Splotch intensity decay rate per hour (requires two timepoints)",
+      "thresholds": {
+        "rapid": { "min": 0.08, "score": 1, "interpretation": "Well-perfused tumor, good vascularity" },
+        "normal": { "min": 0.04, "max": 0.08, "score": 2, "interpretation": "Normal tumor vascularity" },
+        "slow": { "max": 0.04, "score": 3, "interpretation": "Hypoxic core, poor vascularity — may indicate necrotic center" }
+      }
+    },
+    "multipleTypes": {
+      "description": "More than one cancer type hex detected in same scan session",
+      "scoring": {
+        "single": { "count": 1, "score": 0 },
+        "dual": { "count": 2, "score": 3 },
+        "multiple": { "min": 3, "score": 5 }
+      }
+    }
+  },
+  "severityLevels": [
+    {
+      "level": "LOW",
+      "scoreRange": [1, 6],
+      "color": "#4CAF50",
+      "action": "Schedule routine oncology consultation within 2 weeks",
+      "description": "Small, well-defined, single-type detection. Likely early-stage."
+    },
+    {
+      "level": "MODERATE",
+      "scoreRange": [7, 12],
+      "color": "#FF9800",
+      "action": "Schedule oncology consultation within 1 week. Bring encrypted scan export.",
+      "description": "Moderate signal suggesting established tumor. Imaging confirmation recommended."
+    },
+    {
+      "level": "HIGH",
+      "scoreRange": [13, 18],
+      "color": "#F44336",
+      "action": "Urgent oncology referral within 48 hours. Multiple concerning features.",
+      "description": "Large, intense, or multi-satellite detection. Advanced stage likely."
+    },
+    {
+      "level": "CRITICAL",
+      "scoreRange": [19, 30],
+      "color": "#9C27B0",
+      "action": "EMERGENCY — Seek immediate medical attention. Go to ER or call oncology emergency line.",
+      "description": "Extreme signal: massive splotch, many satellites, multiple cancer types, or rapid progression between scans."
+    }
+  ],
+  "disclaimers": [
+    "This scoring system is a triage aid, not a diagnosis.",
+    "All detections require clinical confirmation via imaging and biopsy.",
+    "False positives may occur from inflammation, infection, or wound healing.",
+    "Severity scores are conservative — when in doubt, escalate."
+  ]
+}

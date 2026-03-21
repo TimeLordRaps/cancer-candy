@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FF1493">
+  <title>CanceromeScanner — Doctor Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .dashboard-header {
+      background: var(--bg-card);
+      padding: 1rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    .patient-queue {
+      list-style: none;
+      padding: 0;
+    }
+    .patient-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid var(--border);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .patient-card:hover {
+      background: var(--bg-card-hover);
+    }
+    .patient-card .type-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    .patient-card .severity {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .patient-card .time {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+    .import-zone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      margin: 1rem 0;
+      color: var(--text-muted);
+    }
+    .import-zone.dragover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .detail-view {
+      display: none;
+    }
+    .detail-view.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header class="dashboard-header">
+    <h1>Doctor Dashboard</h1>
+    <p class="tagline">Clinician intake view — CanceromeScanner</p>
+  </header>
+
+  <main>
+    <section id="queue-view">
+      <h2>Patient Queue</h2>
+
+      <div id="import-zone" class="import-zone">
+        <p>Drop encrypted .enc.json or FHIR .json files here</p>
+        <p>— or —</p>
+        <input type="file" id="file-input" accept=".json" multiple>
+      </div>
+
+      <ul id="patient-queue" class="patient-queue">
+        <li class="empty-state">No patient reports loaded. Import encrypted scan files above.</li>
+      </ul>
+    </section>
+
+    <section id="detail-view" class="detail-view">
+      <button id="btn-back-queue" class="btn-secondary" style="margin-bottom: 1rem;">← Back to Queue</button>
+      <div id="detail-content"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CanceromeScanner Doctor Dashboard — All data is patient-provided, encrypted, and never stored server-side.</p>
+  </footer>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

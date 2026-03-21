@@ -222,6 +222,34 @@ All versions use D-Xylose surface functionalization exploiting GLUT1 overexpress
 
 **What the candy framing means here:** You eat a sugar. If you have cancer, you turn a color. The sugar finds the cancer. The color tells the doctor. Penny per patient.
 
+### Two Detection Tiers: FLASH vs WATCH
+
+| Property | FLASH (24-hour) | WATCH (7-day) |
+|----------|----------------|---------------|
+| Secondary encapsulation | None — free chromophore | PLGA 65:35 microsphere depot |
+| Signal onset | 2-6 hours | 6-18 hours |
+| Peak signal | 8-14 hours | Day 3 |
+| Signal clearance | 24 hours (renal + dermal) | Day 7-8 (polymer erosion) |
+| Reapplication | Daily if monitoring | Weekly |
+| Cost per dose | $0.01-0.10 | $0.05-0.30 |
+| Use case | Screening, one-time check | Sustained monitoring, treatment tracking |
+| Form factor | All 6 forms (gummy, lozenge, powder, drink, strip, spray) | Lozenge + strip preferred (sustained buccal absorption) |
+
+**WATCH mechanism:** The chromophore-loaded nanocapsule is secondary-encapsulated in PLGA 65:35 microspheres (~50-100 µm). PLGA undergoes bulk erosion hydrolysis over 5-7 days, releasing nanocapsule payloads in a near-linear profile after an initial burst-suppressed lag phase. Burst release is managed by PEG-b-PLGA shell coating (target: <15% Day 1 release).
+
+**WATCH signal timeline:**
+- **Day 0-1:** Absorption + initial PLGA hydration. Minimal signal (<15% payload released).
+- **Day 1-3:** Accelerating release. Splotch intensifies to peak.
+- **Day 3 (peak):** Maximum chromophore concentration at tumor sites. Optimal scan window.
+- **Day 3-5:** Plateau phase. Signal stable for comparison scans.
+- **Day 5-7:** Polymer exhaustion. Signal fading.
+- **Day 7-8:** Full renal clearance of PLGA fragments + residual chromophore.
+
+**Unsolved (WATCH-specific):**
+- PLGA burst release suppression — PEG-b-PLGA shell is the hypothesis, not validated
+- 7-day chromophore photo-stability under UV/visible light exposure
+- Regulatory classification: WATCH sustained-release may trigger drug-device combination pathway
+
 ---
 
 ## ORANGE — Neonatal Package

@@ -1,0 +1,382 @@
+/* CanceromeScanner — Mobile-first, dark theme, medical-grade readability */
+
+:root {
+  --bg: #0a0a0a;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #222;
+  --text: #e0e0e0;
+  --text-muted: #888;
+  --accent: #FF1493;
+  --accent-dim: #cc1077;
+  --success: #4CAF50;
+  --warning: #FF9800;
+  --danger: #F44336;
+  --critical: #9C27B0;
+  --border: #333;
+  --radius: 12px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+header {
+  text-align: center;
+  padding: 1.5rem 1rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+
+.tagline {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Steps — only .active is visible */
+.step {
+  display: none;
+}
+.step.active {
+  display: block;
+}
+
+.step h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.step p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Camera preview */
+.camera-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #111;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.camera-preview video,
+.camera-preview canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Skin type display */
+.skin-type-display {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+#detected-skin-type {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Hex display */
+.scan-info {
+  margin-bottom: 1rem;
+}
+
+.hex-display {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+}
+
+.hex-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.hex-value {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.hex-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.match-display {
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Body map */
+.body-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.body-outline {
+  width: 200px;
+  height: auto;
+}
+
+.body-part {
+  fill: #222;
+  stroke: var(--border);
+  stroke-width: 1;
+  cursor: pointer;
+  transition: fill 0.15s;
+}
+
+.body-part:hover,
+.body-part.selected {
+  fill: var(--accent-dim);
+  stroke: var(--accent);
+}
+
+.position-label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Result cards */
+.result-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid var(--border);
+}
+
+.result-card h3 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.result-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.result-hex {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.result-detail {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.result-action {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Severity badge */
+.severity-badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.severity-badge.LOW { background: var(--success); color: #000; }
+.severity-badge.MODERATE { background: var(--warning); color: #000; }
+.severity-badge.HIGH { background: var(--danger); color: #fff; }
+.severity-badge.CRITICAL { background: var(--critical); color: #fff; }
+
+/* Features table */
+#features-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#features-table td {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+#features-table td:first-child {
+  color: var(--text-muted);
+  width: 40%;
+}
+
+/* Timeline chart */
+.timeline-chart {
+  min-height: 80px;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 1.5rem;
+}
+
+/* 3D overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg);
+  z-index: 100;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.cancerome-3d {
+  width: 100%;
+  height: 70vh;
+  background: #111;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn-primary, .btn-secondary {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dim);
+}
+
+.btn-primary:disabled {
+  background: #444;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card-hover);
+}
+
+/* Disclaimer */
+.disclaimer {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid var(--warning);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: var(--warning);
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  main {
+    max-width: 600px;
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+}

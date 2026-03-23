@@ -940,7 +940,7 @@ Seven documents release simultaneously:
 | CRISPR Halt Comment | Open web | Biosecurity community, gene drive researchers, regulators |
 | Cancer Candy Catalogue (this document) | Open web | Everyone. That's the point. |
 
-**License:** The Time License v3.0 on everything. Open prior art. Cannot be patented. Canonical: https://github.com/TimeLordRaps/the-time-license
+**License:** The Time License v7.2 on everything. Open prior art. Cannot be patented. Canonical: https://github.com/TimeLordRaps/the-time-license
 
 ### Hour One: Neonatal Outreach Begins
 

@@ -61,4 +61,4 @@ The babies are still dying. The chemistry costs $12. Not solved means go faster.
 
 ---
 
-*Published as open prior art. The Time License v3.0. Tyler Roost / The TimeLord. Canonical: [TimeLordRaps/the-time-license](https://github.com/TimeLordRaps/the-time-license)*
+*Published as open prior art. The Time License v7.2. Tyler Roost / The TimeLord. Canonical: [TimeLordRaps/the-time-license](https://github.com/TimeLordRaps/the-time-license)*
